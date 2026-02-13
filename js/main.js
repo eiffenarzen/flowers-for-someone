@@ -1,22 +1,32 @@
-
 onload = () => {
   const c = setTimeout(() => {
     document.body.classList.remove("not-loaded");
 
-    const titles = ('Luv u most. Happy V-Day!❤️').split('')
-    const titleElement = document.getElementById('title');
-    let index = 0;
+    const lines = [
+      "Luv u most.",
+      "Happy V-Day!❤️"
+    ];
 
-    function appendTitle() {
-      if (index < titles.length) {
-        titleElement.innerHTML += titles[index];
-        index++;
-        setTimeout(appendTitle, 300); // 1000ms delay
+    const titleElement = document.getElementById('title');
+    let lineIndex = 0;
+    let charIndex = 0;
+
+    function typeEffect() {
+      if (lineIndex < lines.length) {
+        if (charIndex < lines[lineIndex].length) {
+          titleElement.innerHTML += lines[lineIndex][charIndex];
+          charIndex++;
+          setTimeout(typeEffect, 300);
+        } else {
+          titleElement.innerHTML += "<br>"; // pindah baris
+          lineIndex++;
+          charIndex = 0;
+          setTimeout(typeEffect, 500);
+        }
       }
     }
 
-    appendTitle();
-
+    typeEffect();
     clearTimeout(c);
   }, 1000);
 };
