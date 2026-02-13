@@ -1,20 +1,40 @@
 const title = document.querySelector('.title')
-const text = `Will You Be My Valentine?`.split('')
+const texts = [
+  "Will You Be My",
+  "Valentine?"
+];
 
-// Create container for better responsive layout
+// layout
 title.style.display = 'flex'
-title.style.flexWrap = 'wrap'
-title.style.justifyContent = 'center'
+title.style.flexDirection = 'column'
+title.style.alignItems = 'center'
 title.style.gap = '0.5rem'
 
-for (let index = 0; index < text.length; index++) {
-  if (text[index] !== ' ') {
-    title.innerHTML += `<span>${text[index]}</span>`
-  } else {
-    title.innerHTML += `<span style='width: 1rem'></span>`
-  }
+// fungsi untuk buat 1 baris
+function createLine(lineText) {
+  const lineDiv = document.createElement('div')
+  lineDiv.style.display = 'flex'
+  lineDiv.style.gap = '0.5rem'
+  lineDiv.style.flexWrap = 'wrap'
+  lineDiv.style.justifyContent = 'center'
+
+  lineText.split('').forEach(char => {
+    const span = document.createElement('span')
+    if (char === ' ') {
+      span.style.width = '1rem'
+    } else {
+      span.innerText = char
+    }
+    lineDiv.appendChild(span)
+  })
+
+  title.appendChild(lineDiv)
 }
 
+// buat 2 baris
+texts.forEach(line => createLine(line))
+
+// animasi random delay
 const textElements = document.querySelectorAll('.title span');
 textElements.forEach((element) => {
   const randomDelay = Math.random() * 3;
