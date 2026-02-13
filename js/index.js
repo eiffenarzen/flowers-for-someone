@@ -1,7 +1,7 @@
 const title = document.querySelector('.title')
 const texts = [
-  "Will You Be My",
-  "Valentine?"
+  "Will You Be",
+  "My Valentine?"
 ];
 
 // layout
