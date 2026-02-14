@@ -47,7 +47,7 @@ body {
     repeating-linear-gradient(220deg, rgb(255, 105, 180) 0px, rgb(255, 105, 180) 2px, transparent 2px, transparent 22px),
     repeating-linear-gradient(189deg, rgb(255, 182, 193) 0px, rgb(255, 182, 193) 2px, transparent 2px, transparent 22px),
     repeating-linear-gradient(148deg, rgb(255, 20, 147) 0px, rgb(255, 20, 147) 2px, transparent 2px, transparent 22px),
-    linear-gradient(90deg, rgb(255, 105, 180), rgb(255, 20, 147));
+    linear-gradient(90deg, rgb(255, 182, 193), rgb(255, 105, 180));
 }
 
 .flowers {
